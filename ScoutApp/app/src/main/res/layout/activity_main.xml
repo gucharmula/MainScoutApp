@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="org.strykeforce.scoutapp.MainActivity"
+    android:scrollbarAlwaysDrawHorizontalTrack="false"
+    android:scrollbarAlwaysDrawVerticalTrack="false">
+
+    <TextView
+        android:text="0"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:id="@+id/teamdata"
+        android:layout_marginEnd="249dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:id="@+id/matchdata"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/team"
+        android:layout_marginEnd="79dp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="Match"
+        android:layout_height="20dp"
+        android:id="@+id/match"
+        android:layout_width="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/matchdata"
+        android:layout_marginEnd="39dp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="Team"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:id="@+id/team"
+        android:layout_marginEnd="33dp"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/teamdata"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black" />
+
+
+    <TextView
+        android:text="Tele-Op"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:id="@+id/tele"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Auto"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:id="@+id/auto"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold" />
+
+    <Switch
+        android:text="Cross Base Line:   "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/baseline"
+        android:layout_below="@+id/textView32"
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="Place Gear:"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:id="@+id/placegearauto"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/baseline"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="High Goals:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/highgoalsauto"
+        android:layout_marginTop="22dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/placegearauto"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Low Goals:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lowgoalsauto"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/highgoalsauto"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp" />
+
+    <Switch
+        android:text="    "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/placegearautodata"
+        android:layout_alignTop="@+id/placegearauto"
+        android:layout_toEndOf="@+id/highgoalsauto" />
+
+    <EditText
+        android:layout_width="167dp"
+        android:layout_height="20dp"
+        android:inputType="textPersonName"
+        android:text="0"
+        android:ems="10"
+        android:id="@+id/highgoalsdataauto"
+        android:textSize="14sp"
+        android:layout_alignTop="@+id/highgoalsauto"
+        android:layout_toEndOf="@+id/highgoalsauto"
+        android:layout_marginStart="20dp" />
+
+    <Switch
+        android:text="    "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lowgoaldataauto"
+        android:layout_alignBottom="@+id/lowgoalsauto"
+        android:layout_toEndOf="@+id/highgoalsauto" />
+
+    <TextView
+        android:text="________________________________________________________________________________________________________________________________________________________"
+        android:layout_width="1500dp"
+        android:layout_height="20dp"
+        android:id="@+id/textView32"
+        android:layout_below="@+id/auto"
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/black"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:text="__________________________________________________________________________________________________________________________________________________________________________"
+        android:layout_width="1500dp"
+        android:layout_height="20dp"
+        android:id="@+id/textView34"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/lowgoalsauto"
+        android:layout_alignParentStart="true"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:text="Other"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:id="@+id/textView35"
+        android:textStyle="normal|bold"
+        android:textSize="30sp"
+        android:layout_below="@+id/textView34"
+        android:layout_alignParentEnd="true"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="End Game"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:id="@+id/endgame"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/textView34"
+        android:layout_alignParentStart="true" />
+
+    <Switch
+        android:text="On Defence   "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ondefence"
+        android:layout_below="@+id/textView35"
+        android:layout_toStartOf="@+id/teamdata"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="Notes/Feedback:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView36"
+        android:layout_above="@+id/sendbutton"
+        android:layout_alignStart="@+id/ondefence"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\"
+        android:layout_width="5dp"
+        android:layout_height="500dp"
+        android:id="@+id/textView31"
+        android:textStyle="normal|bold"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/ondefence"
+        android:layout_marginEnd="17dp" />
+
+    <TextView
+        android:text="Gears Delivered:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gearstele"
+        android:layout_alignBaseline="@+id/baseline"
+        android:layout_alignBottom="@+id/baseline"
+        android:layout_toEndOf="@+id/textView31"
+        android:textColor="@android:color/black" />
+
+    <NumberPicker
+        android:layout_width="30dp"
+        android:layout_height="80dp"
+        android:id="@+id/numberPicker4"
+        android:orientation="horizontal"
+        android:layout_alignBaseline="@+id/textView32"
+        android:layout_alignBottom="@+id/textView32"
+        android:layout_toEndOf="@+id/team" />
+
+    <Switch
+        android:text="Can Pick Gear Off The Ground:   "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gearoffground"
+        android:layout_alignTop="@+id/highgoalsdataauto"
+        android:layout_toEndOf="@+id/textView31"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="High Goals:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView34"
+        android:layout_toEndOf="@+id/textView31"
+        android:id="@+id/highgoaltele"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/highgoalteledata"
+        android:textSize="14sp"
+        android:layout_below="@+id/gearoffground"
+        android:layout_toEndOf="@+id/gearstele"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="________________________________________________________________________________________________________________________________________________________"
+        android:layout_width="1500dp"
+        android:layout_height="20dp"
+        android:id="@+id/textView33"
+        android:textColor="@android:color/black"
+        android:layout_alignBaseline="@+id/textView32"
+        android:layout_alignBottom="@+id/textView32"
+        android:layout_alignParentStart="true"
+        android:textAllCaps="false" />
+
+    <Button
+        android:text="Done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sendbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:textSize="14sp"
+        android:layout_above="@+id/sendbutton"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:layout_alignParentEnd="true" />
+
+    <NumberPicker
+        android:layout_width="30dp"
+        android:layout_height="80dp"
+        android:id="@+id/lowgoalspicker"
+        android:layout_alignBaseline="@+id/textView32"
+        android:layout_alignBottom="@+id/textView32"
+        android:layout_alignStart="@+id/textView35" />
+
+    <Switch
+        android:text="Gets Played Defence on When Shooting High Goals:   "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/highgoalteledata"
+        android:layout_toEndOf="@+id/textView31"
+        android:layout_marginTop="19dp"
+        android:id="@+id/highgoaldefence"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="5 seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView38"
+        android:textColor="@android:color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <SeekBar
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:id="@+id/ropetimedata"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/highgoalsdataauto" />
+
+    <TextView
+        android:text="30 seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView39"
+        android:textColor="@android:color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/textView31" />
+
+    <TextView
+        android:text="Low Goal Loads:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lowgoalstele"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="30dp"
+        android:layout_alignBaseline="@+id/gearstele"
+        android:layout_alignBottom="@+id/gearstele"
+        android:layout_toEndOf="@+id/numberPicker4" />
+
+    <TextView
+        android:text="Time Taken to Climb Rope:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ropetime"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/textView36"
+        android:layout_alignParentStart="true" />
+
+    <Switch
+        android:text="Activated Touchpad:   "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/touchpad"
+        android:textColor="@android:color/black"
+        android:layout_above="@+id/textView36"
+        android:layout_alignParentStart="true" />
+
+    android:orientation="horizontal"
+
+</RelativeLayout>
