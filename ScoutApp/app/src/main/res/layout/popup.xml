@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="Scan the QR code"
+            android:layout_width="458dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/Sure"
+            android:layout_weight="0.07"
+            android:textSize="36sp"
+            android:textStyle="normal|bold"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="33dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:textAlignment="center" />
+
+        <Button
+            android:text="Next Match"
+            android:layout_width="159dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_yes"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:text="Go Back"
+            android:layout_width="166dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_No"
+            android:layout_marginTop="32dp"
+            android:layout_below="@+id/Sure"
+            android:layout_alignStart="@+id/button_yes" />
+
+        <ImageView
+            android:layout_width="500dp"
+            android:layout_height="500dp"
+            app:srcCompat="@android:drawable/alert_dark_frame"
+            android:id="@+id/imageView2"
+            android:layout_weight="0.48"
+            android:layout_alignTop="@+id/button_No"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp" />
+    </RelativeLayout>
+
+</LinearLayout>
