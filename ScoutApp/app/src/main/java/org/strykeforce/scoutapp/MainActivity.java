@@ -83,8 +83,6 @@ package org.strykeforce.scoutapp;
             super.onCreate(savedInstanceState);
             setContentView(R.layout.start);
 
-            doneButton = (Button) findViewById(R.id.sendbutton);
-
             allTeamNums = getTeamNums();
             matchDone = new boolean[numMatches];
             for(int j=0; j<numMatches; j++)
@@ -103,9 +101,7 @@ package org.strykeforce.scoutapp;
 
                     popupscouttScreen();
 
-                    lowgoaldisplay = (TextView) findViewById(R.id.lowgoalloaddata);
 
-                    geardisplay = (TextView) findViewById(R.id.textView6);
 
                 };
 
@@ -236,6 +232,8 @@ package org.strykeforce.scoutapp;
         public void popupscouttScreen(){
 
             {
+                doneButton = (Button) findViewById(R.id.sendbutton);
+
                 SeekBar seekbar = (SeekBar) (findViewById(R.id.ropetimedata));
                 seekbar.setMax((max - min) / step);
 
@@ -258,6 +256,13 @@ package org.strykeforce.scoutapp;
                             }
                         }
                 );
+
+                lowgoaldisplay = (TextView) findViewById(R.id.lowgoalloaddata);
+                lowgoaldisplay.setText(Integer.toString(lowgoalLoadsTele));
+
+                geardisplay = (TextView) findViewById(R.id.textView6);
+                geardisplay.setText(Integer.toString(gearsDeliveredTele));
+
                 findViewById(R.id.lowgoalsub).setOnClickListener(new View.OnClickListener() {
 
                     @Override
@@ -322,54 +327,9 @@ package org.strykeforce.scoutapp;
                         GenerateQRString();
 
                         setContentView(R.layout.popup);
-
-                        QRImageView = (ImageView) findViewById(R.id.imageView2);
-
-                        MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-
-                        try {
-
-                            BitMatrix bitMatrix = multiFormatWriter.encode(QRStr, BarcodeFormat.QR_CODE, 400, 400);
-
-                            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-
-                            Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-
-                            QRImageView.setImageBitmap(bitmap);
-
-                        } catch (WriterException e) {
-
-                            e.printStackTrace();
+                        popupqrscreen();
 
 
-                        }
-
-
-                        findViewById(R.id.button_No).setOnClickListener(new View.OnClickListener() {
-
-                            @Override
-
-                            public void onClick(View v) {
-
-                                setContentView(R.layout.activity_main);
-
-                            }
-                        });
-
-
-                        findViewById(R.id.button_yes).setOnClickListener(new View.OnClickListener() {
-
-                            @Override
-
-                            public void onClick(View v) {
-
-
-                                setContentView(R.layout.activity_main);
-
-                                ResetMatch();
-
-                            }
-                        });
 
                     }
 
@@ -377,6 +337,59 @@ package org.strykeforce.scoutapp;
 
             }}
 
+//Segregated popup from scout screen
+public void popupqrscreen()
+{
+    QRImageView = (ImageView) findViewById(R.id.imageView2);
+
+    MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+
+    try {
+
+        BitMatrix bitMatrix = multiFormatWriter.encode(QRStr, BarcodeFormat.QR_CODE, 400, 400);
+
+        BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+
+        Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+
+        QRImageView.setImageBitmap(bitmap);
+
+    } catch (WriterException e) {
+
+        e.printStackTrace();
+
+
+    }
+
+
+    findViewById(R.id.button_No).setOnClickListener(new View.OnClickListener() {
+
+        @Override
+
+        public void onClick(View v) {
+
+            setContentView(R.layout.activity_main);
+            popupscouttScreen();
+
+        }
+    });
+
+
+    findViewById(R.id.button_yes).setOnClickListener(new View.OnClickListener() {
+
+        @Override
+
+        public void onClick(View v) {
+
+
+            setContentView(R.layout.activity_main);
+            ResetMatch();
+            popupscouttScreen();
+
+
+        }
+    });
+}
         public void ResetMatch() {
 
             //gets next match number and team number NB
@@ -438,6 +451,23 @@ package org.strykeforce.scoutapp;
             Switch GetsDefendedSwitch = (Switch) findViewById(R.id.highgoaldefence);
 
             GetsDefendedSwitch.setChecked(false);
+
+            //completed remaining fields reset
+            gearsDeliveredTele = 0;
+            lowgoalLoadsTele = 0;
+
+            EditText highgoalsauto = (EditText) findViewById(R.id.editText6);
+            highgoalsauto.setText("");
+
+            EditText highgoalsdel = (EditText) findViewById(R.id.highteledata);
+            highgoalsdel.setText("");
+
+            EditText notes = (EditText) findViewById(R.id.editText2);
+            notes.setText("");
+
+            EditText scoutname = (EditText) findViewById(R.id.editText3);
+            scoutname.setText("");
+
 
         }
 
