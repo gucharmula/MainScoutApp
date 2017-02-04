@@ -1,181 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/activity_scout_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="org.strykeforce.scoutapp.MainActivity"
-    android:scrollbarAlwaysDrawHorizontalTrack="false"
-    android:scrollbarAlwaysDrawVerticalTrack="false">
+    tools:context="org.strykeforce.scoutapp.MainActivity">
 
     <TextView
-        android:text="0"
-        android:layout_width="50dp"
-        android:layout_height="20dp"
-        android:id="@+id/teamdata"
-        android:layout_marginEnd="249dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:text=" Auto"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:id="@+id/auto"
+        android:textSize="35sp"
+        android:textColor="@android:color/holo_green_dark"
         android:textStyle="normal|bold"
-        android:textColor="@android:color/black" />
+        android:layout_x="@dimen/left_align"
+        android:layout_y="0dp" />
 
-    <TextView
-        android:text="0"
-        android:layout_width="50dp"
-        android:layout_height="20dp"
-        android:id="@+id/matchdata"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/team"
-        android:layout_marginEnd="79dp"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/black" />
+    <Switch
+        android:text="Cross Base Line: "
+        android:scaleX="2.00"
+        android:scaleY="2.00"
+        android:layout_width="wrap_content"
+        android:id="@+id/baseline"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="bold"
+        android:layout_x="@dimen/left_align"
+        android:layout_y="52dp"
+        android:layout_height="25dp" />
 
     <TextView
         android:text="Match"
         android:layout_height="20dp"
         android:id="@+id/match"
+        android:scaleX="1.50"
+        android:scaleY="1.50"
         android:layout_width="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/matchdata"
         android:layout_marginEnd="39dp"
         android:textStyle="normal|bold"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:layout_x="310dp"
+        android:layout_y="0dp"/>
 
     <TextView
         android:text="Team"
         android:layout_width="50dp"
         android:layout_height="20dp"
         android:id="@+id/team"
+        android:scaleX="1.50"
+        android:scaleY="1.50"
         android:layout_marginEnd="33dp"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/teamdata"
         android:textStyle="normal|bold"
-        android:textColor="@android:color/black" />
-
-
-    <TextView
-        android:text="Auto"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:id="@+id/auto"
-        android:textSize="30sp"
-        android:textColor="@android:color/holo_green_dark"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:textStyle="normal|bold" />
-
-    <Switch
-        android:text="Cross Base Line:   "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/baseline"
-        android:layout_below="@+id/textView32"
-        android:layout_alignParentStart="true"
-        android:textColor="@android:color/holo_green_dark"
-        android:layout_alignEnd="@+id/ropetime"
-        android:textStyle="bold" />
-
-    <TextView
-        android:text="Place Gear:"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:id="@+id/placegearauto"
-        android:layout_marginTop="16dp"
-        android:textColor="@android:color/holo_green_dark"
-        android:layout_below="@+id/baseline"
-        android:layout_alignParentStart="true"
-        android:textStyle="bold" />
-
-    <TextView
-        android:text="High Goals Scored:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/highgoalsauto"
-        android:layout_marginTop="22dp"
-        android:textColor="@android:color/holo_green_dark"
-        android:layout_below="@+id/placegearauto"
-        android:layout_alignParentStart="true"
-        android:textStyle="bold" />
-
-    <TextView
-        android:text="Low Goals:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lowgoalsauto"
-        android:textColor="@android:color/holo_green_dark"
-        android:layout_below="@+id/highgoalsauto"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp"
-        android:textStyle="bold" />
-
-    <Switch
-        android:text="    "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/placegearautodata"
-        android:layout_alignTop="@+id/placegearauto"
-        android:layout_toEndOf="@+id/highgoalsauto"
-        android:textColor="@android:color/holo_green_dark"
-        android:textStyle="bold" />
-
-    <Switch
-        android:text="    "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lowgoaldataauto"
-        android:layout_alignBottom="@+id/lowgoalsauto"
-        android:layout_toEndOf="@+id/highgoalsauto"
-        android:textColor="@android:color/holo_green_dark"
-        android:textStyle="bold" />
-
-    <TextView
-        android:text="__________________________________________________________________________________________________________________________________________________________________________"
-        android:layout_width="1500dp"
-        android:layout_height="20dp"
-        android:id="@+id/textView34"
         android:textColor="@android:color/black"
-        android:layout_marginTop="56dp"
-        android:layout_below="@+id/lowgoalsauto"
-        android:layout_alignParentStart="true"
-        android:textAllCaps="false"
-        android:textStyle="bold" />
+        android:layout_x="430dp"
+        android:layout_y="0dp"/>
 
-    <TextView
-        android:text="Other"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:id="@+id/textView35"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:layout_below="@+id/textView34"
-        android:layout_alignParentEnd="true"
-        android:textColor="@color/zxing_custom_viewfinder_laser" />
-
-    <TextView
-        android:text="End Game"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:id="@+id/endgame"
-        android:textSize="30sp"
-        android:textColor="?android:attr/textColorLink"
-        android:textStyle="bold"
-        android:layout_below="@+id/textView34"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="Done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sendbutton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:textAllCaps="false"
-        android:textColor="@color/zxing_custom_viewfinder_laser"
-        android:textStyle="bold" />
 
     <TextView
         android:text="|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\"
@@ -183,72 +67,360 @@
         android:layout_height="500dp"
         android:id="@+id/textView31"
         android:textStyle="normal|bold"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_x="400dp"
+        android:layout_y="0dp"/>
+
+    <TextView
+        android:text="0"
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:scaleX="2.00"
+        android:scaleY="2.00"
+        android:id="@+id/lowgoalloaddata"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        android:layout_x="730dp"
+        android:layout_y="60dp"/>
+
+    <Button
+        android:text="+"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gearsadd"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        android:layout_x="@dimen/button_right"
+        android:layout_y="@dimen/button_bottom"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/highteledata"
+        android:textSize="20sp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        android:layout_x="660dp"
+        android:layout_y="190dp"
+        android:text="0" />
+
+    <TextView
+        android:text="(seconds)  5        10        15        25        30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView38"
+        android:textColor="?android:attr/textColorLink"
+        android:textStyle="bold"
+        android:layout_x="160dp"
+        android:layout_y="410dp"/>
+
+    <TextView
+        android:text="                  Tele-Op"
+        android:layout_width="290dp"
+        android:layout_height="40dp"
+        android:id="@+id/tele"
+        android:textSize="35sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/holo_orange_dark"
+        android:layout_x="@dimen/right_align2"
+        android:layout_y="0dp"/>
+
+    <!--Num high goals in auto?-->
+
+    <Button
+        android:text="+"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lowgoaladd"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        android:layout_x="@dimen/button_right"
+        android:layout_y="@dimen/button_top"/>
+
+    <TextView
+        android:text="0"
+        android:id="@+id/gearNumDisplay"
+        android:scaleX="2.00"
+        android:scaleY="2.00"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        android:layout_x="730dp"
+        android:layout_y="110dp"
+        android:layout_height="15dp"
+        android:layout_width="30dp" />
+
+    <Button
+        android:text="Done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sendbutton"
+        android:textAllCaps="false"
+        android:textColor="@color/zxing_custom_viewfinder_laser"
+        android:textStyle="bold"
+        android:layout_x="795dp"
+        android:layout_y="390dp"/>
+
+    <Button
+        android:text="-"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gearssub"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        android:layout_x="@dimen/button_left"
+        android:layout_y="@dimen/button_bottom"/>
+
+    <TextView
+        android:text="Low Goal Loads:     "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="2.00"
+        android:scaleY="2.00"
+        android:id="@+id/lowgoalstele"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        android:layout_x="@dimen/right_align2"
+        android:layout_y="60dp"/>
 
     <TextView
         android:text="High Goals Scored:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/highgoaltele"
+        android:scaleX="2.00"
+        android:scaleY="2.00"
         android:textColor="@android:color/holo_orange_dark"
-        android:layout_above="@+id/textView34"
-        android:layout_alignStart="@+id/gearstele"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_x="@dimen/right_align2"
+        android:layout_y="202dp"/>
 
-    <TextView
-        android:text="Scout Name:"
+    <Switch
+        android:text="Can Pick Up Gear Off The Ground: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView35"
-        android:layout_alignStart="@+id/highgoaldefence"
-        android:id="@+id/textView4"
-        android:textColor="@color/zxing_custom_viewfinder_laser"
-        android:textStyle="bold" />
+        android:id="@+id/gearoffground"
+        android:scaleX="1.90"
+        android:scaleY="1.90"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        android:layout_x="@dimen/right_align"
+        android:layout_y="155dp"/>
 
     <TextView
-        android:text="Notes/Feedback:"
+        android:text="End Game"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:id="@+id/endgame"
+        android:textSize="35sp"
+        android:textColor="?android:attr/textColorLink"
+        android:textStyle="bold"
+        android:layout_x="@dimen/left_align"
+        android:layout_y="275dp"/>
+
+    <TextView
+        android:text="High Goals Scored:       "
+        android:layout_width="wrap_content"
+        android:scaleX="2.00"
+        android:scaleY="2.00"
+        android:layout_height="25dp"
+        android:id="@+id/highgoalsauto"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="bold"
+        android:layout_x="@dimen/left_align"
+        android:layout_y="118dp" />
+
+    <TextView
+        android:text="Time to Climb Rope:      "
+        android:layout_width="wrap_content"
+        android:scaleX="1.70"
+        android:scaleY="1.70"
+        android:id="@+id/ropetime"
+        android:textColor="?android:attr/textColorLink"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_x="50dp"
+        android:layout_y="380dp"/>
+
+    <Switch
+        android:text="Defence Interferes Shooting High: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/highgoaldefence"
+        android:textAllCaps="false"
+        android:scaleX="1.90"
+        android:scaleY="1.90"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        android:layout_x="@dimen/right_align"
+        android:layout_y="240dp"/>
+
+    <Switch
+        android:text="     Played Defense:   "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="2.00"
+        android:scaleY="2.00"
+        android:id="@+id/ondefence"
+        android:textColor="@color/zxing_custom_viewfinder_laser"
+        android:textStyle="bold"
+        android:layout_marginStart="19dp"
+        android:layout_x="@dimen/right_align2"
+        android:layout_y="360dp"/>
+
+    <TextView
+        android:text=" Notes/Feedback:"
+        android:scaleX="2.00"
+        android:scaleY="2.00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView36"
         android:textColor="@color/zxing_custom_viewfinder_laser"
-        android:layout_alignBaseline="@+id/sendbutton"
-        android:layout_alignBottom="@+id/sendbutton"
-        android:layout_toStartOf="@+id/teamdata"
-        android:textStyle="bold" />
-
-    <Switch
-        android:text="Playing Defense on Other Team:   "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ondefence"
-        android:textColor="@color/zxing_custom_viewfinder_laser"
-        android:layout_above="@+id/editText2"
-        android:layout_alignStart="@+id/textView36"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_x="@dimen/right_align2"
+        android:layout_y="410dp"/>
 
     <TextView
-        android:text="Low Goal Loads:"
+        android:text="Scout Name:    "
+        android:scaleX="2.00"
+        android:scaleY="2.00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lowgoalstele"
-        android:textAllCaps="false"
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_alignBottom="@+id/baseline"
-        android:layout_alignStart="@+id/ondefence"
-        android:textStyle="bold" />
+        android:id="@+id/textView4"
+        android:textColor="@color/zxing_custom_viewfinder_laser"
+        android:textStyle="bold"
+        android:layout_x="@dimen/right_align2"
+        android:layout_y="320dp"/>
+
 
     <Switch
-        android:text="Gets Played Defence on When Shooting High Goals:   "
+        android:text="Low Goal Dump: "
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:id="@+id/lowgoaldataauto"
+        android:scaleX="2.00"
+        android:scaleY="2.00"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="bold"
+        android:layout_x="@dimen/left_align"
+        android:layout_y="220dp" />
+
+    <SeekBar
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:id="@+id/ropetimedata"
+        android:layout_x="220dp"
+        android:layout_y="375dp"
+        android:scaleX="1.05"
+        android:scaleY="1.50"/>
+
+    <Switch
+        android:text="Activated Touchpad: "
+        android:layout_width="180dp"
+        android:scaleX="2.00"
+        android:scaleY="2.00"
+        android:layout_height="wrap_content"
+        android:id="@+id/touchpad"
+        android:textColor="?android:attr/textColorLink"
+        android:textStyle="bold"
+        android:layout_x="90dp"
+        android:layout_y="325dp" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:id="@+id/matchdata"
+        android:scaleX="1.50"
+        android:scaleY="1.50"
+        android:layout_marginEnd="79dp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black"
+        android:layout_x="370dp"
+        android:layout_y="0dp"/>
+
+    <TextView
+        android:text="0"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:scaleX="1.50"
+        android:scaleY="1.50"
+        android:id="@+id/teamdata"
+        android:layout_marginEnd="249dp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black"
+        android:layout_x="490dp"
+        android:layout_y="0dp"/>
+
+    <TextView
+        android:text="__________________________________________________________________________________________________________________________________________________________________________"
+        android:layout_width="1500dp"
+        android:layout_height="20dp"
+        android:id="@+id/textView34"
+        android:textColor="@android:color/black"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:layout_x="0dp"
+        android:layout_y="260dp"/>
+
+    <TextView
+        android:text="________________________________________________________________________________________________________________________________________________________"
+        android:layout_width="1500dp"
+        android:layout_height="20dp"
+        android:id="@+id/textView32"
+        android:textColor="@android:color/black"
+        android:textAllCaps="false"
+        android:layout_x="0dp"
+        android:layout_y="26dp" />
+
+    <Switch
+        android:text="Places Gear:         "
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:scaleX="2.00"
+        android:scaleY="2.00"
+        android:id="@+id/placegearautodata"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="bold"
+        android:layout_x="@dimen/left_align"
+        android:layout_y="165dp" />
+
+    <Button
+        android:text="-"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:id="@+id/highgoaldefence"
-        android:textAllCaps="false"
+        android:id="@+id/lowgoalsub"
         android:textColor="@android:color/holo_orange_dark"
-        android:layout_below="@+id/highgoaltele"
-        android:layout_alignStart="@+id/highgoaltele"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_x="@dimen/button_left"
+        android:layout_y="@dimen/button_top"/>
+
+    <TextView
+        android:text="Gears Delivered:      "
+        android:layout_width="wrap_content"
+        android:scaleX="2.00"
+        android:scaleY="2.00"
+        android:layout_height="wrap_content"
+        android:id="@+id/gearstele"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        android:layout_x="@dimen/right_align2"
+        android:layout_y="110dp"/>
+
+    <TextView
+        android:text="Other"
+        android:layout_height="40dp"
+        android:id="@+id/textView35"
+        android:textStyle="bold"
+        android:textSize="35sp"
+        android:textColor="@color/zxing_custom_viewfinder_laser"
+        android:layout_width="100dp"
+        android:layout_x="650dp"
+        android:layout_y="275dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -259,200 +431,46 @@
         android:textSize="14sp"
         android:textAllCaps="false"
         android:textColor="@color/zxing_custom_viewfinder_laser"
-        android:layout_alignTop="@+id/sendbutton"
-        android:layout_toEndOf="@+id/highgoaltele"
-        android:textStyle="bold" />
-
-    <Switch
-        android:text="Activated Touchpad:   "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/touchpad"
-        android:textColor="?android:attr/textColorLink"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentStart="true"
-        android:textStyle="bold" />
-
-    <Button
-        android:text="+"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lowgoaladd"
-        android:layout_alignBaseline="@+id/lowgoalsub"
-        android:layout_alignBottom="@+id/lowgoalsub"
-        android:layout_alignStart="@+id/textView35"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textStyle="bold" />
-
-    <TextView
-        android:text="Gears Delivered:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gearstele"
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_alignBottom="@+id/placegearautodata"
-        android:layout_alignEnd="@+id/lowgoalstele"
-        android:textStyle="bold" />
-
-    <TextView
-        android:text="0"
-        android:layout_width="50dp"
-        android:layout_height="20dp"
-        android:id="@+id/textView6"
-        android:layout_below="@+id/lowgoalsub"
-        android:layout_toEndOf="@+id/ondefence"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textStyle="bold" />
-
-    <Button
-        android:text="-"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lowgoalsub"
-        android:layout_alignBaseline="@+id/baseline"
-        android:layout_alignBottom="@+id/baseline"
-        android:layout_toEndOf="@+id/highgoaltele"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textStyle="bold" />
-
-    <Button
-        android:text="-"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gearssub"
-        android:layout_below="@+id/lowgoalsub"
-        android:layout_alignStart="@+id/lowgoalsub"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textStyle="bold" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:layout_above="@+id/lowgoaldataauto"
-        android:layout_toEndOf="@+id/auto"
-        android:id="@+id/editText6"
-        android:textColor="@android:color/holo_green_dark"
-        android:textStyle="bold" />
-
-    <Switch
-        android:text="Can Pick Gear Off The Ground:   "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gearoffground"
-        android:textAllCaps="false"
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_alignBottom="@+id/editText6"
-        android:layout_alignStart="@+id/highgoaltele"
-        android:textStyle="bold" />
-
-    <TextView
-        android:text="Time Taken to Climb Rope:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ropetime"
-        android:textColor="?android:attr/textColorLink"
-        android:layout_below="@+id/ondefence"
-        android:layout_alignParentStart="true"
-        android:textStyle="bold" />
-
-    <TextView
-        android:text="________________________________________________________________________________________________________________________________________________________"
-        android:layout_width="1500dp"
-        android:layout_height="20dp"
-        android:id="@+id/textView32"
-        android:textColor="@android:color/black"
-        android:textAllCaps="false"
-        android:layout_below="@+id/tele"
-        android:layout_toStartOf="@+id/sendbutton" />
-
-    <TextView
-        android:text="________________________________________________________________________________________________________________________________________________________"
-        android:layout_width="1500dp"
-        android:layout_height="20dp"
-        android:id="@+id/textView33"
-        android:textColor="@android:color/black"
-        android:textAllCaps="false"
         android:textStyle="bold"
-        android:layout_alignBaseline="@+id/textView32"
-        android:layout_alignBottom="@+id/textView32"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="0"
-        android:layout_width="50dp"
-        android:layout_height="20dp"
-        android:id="@+id/lowgoalloaddata"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textStyle="bold"
-        android:layout_alignBottom="@+id/lowgoalstele"
-        android:layout_alignStart="@+id/textView6" />
-
-    <Button
-        android:text="+"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gearsadd"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textStyle="bold"
-        android:layout_below="@+id/lowgoaladd"
-        android:layout_alignStart="@+id/lowgoaladd" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/highteledata"
-        android:textSize="14sp"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textStyle="bold"
-        android:layout_below="@+id/gearoffground"
-        android:layout_alignEnd="@+id/textView32" />
+        android:layout_x="630dp"
+        android:layout_y="400dp"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText3"
-        android:textSize="14sp"
-        android:textColor="?attr/colorPrimaryDark"
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_alignEnd="@+id/ondefence" />
-
-    <SeekBar
-        android:layout_width="200dp"
-        android:layout_height="30dp"
-        android:id="@+id/ropetimedata"
-        android:layout_alignTop="@+id/ropetime"
-        android:layout_toEndOf="@+id/touchpad" />
-
-    <TextView
-        android:text="5 seconds        10        15        25        30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView38"
-        android:textColor="?android:attr/textColorLink"
-        android:textStyle="bold"
-        android:layout_below="@+id/ropetimedata"
-        android:layout_toEndOf="@+id/endgame" />
-
-    <TextView
-        android:text="Tele-Op"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:id="@+id/tele"
-        android:textSize="30sp"
         android:textStyle="normal|bold"
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/editText3"
+        android:textSize="15sp"
+        android:textColor="?attr/colorPrimaryDark"
+        android:layout_x="600dp"
+        android:layout_y="310dp" />
+
+    <EditText
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:textSize="20sp"
+        android:id="@+id/editText6"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="bold"
+        android:layout_x="250dp"
+        android:layout_y="102dp"
+        android:text="0" />
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        app:srcCompat="@android:drawable/alert_light_frame"
+        android:scaleX="1.50"
+        android:scaleY="1.50"
+        android:layout_x="200dp"
+        android:layout_y="50dp"
+        android:id="@+id/imageView"
+        android:visibility="invisible" />
 
     android:orientation="horizontal"
 
-</RelativeLayout>
+</AbsoluteLayout>
