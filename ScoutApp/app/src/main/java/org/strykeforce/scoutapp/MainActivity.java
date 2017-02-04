@@ -135,8 +135,9 @@ package org.strykeforce.scoutapp;
 
             if(touchpad)
             {
-                QRStr = "Scout ID: " + scoutid + System.lineSeparator() +
+                QRStr = "Scout ID: " + scoutid + System.lineSeparator()
                     +"Team Num: " + TEAM_NUMBER + System.lineSeparator()
+                    +"Match Num: " + MATCH_NUMBER + System.lineSeparator()
                     
                     +"Auto High: " + autohigh + System.lineSeparator()
                     +"Auto Low: " + AutoLow + System.lineSeparator()
@@ -157,8 +158,9 @@ package org.strykeforce.scoutapp;
                     +"Notes: " + notes + System.lineSeparator();
             }
             else {
-                 QRStr = "Scout ID: " + scoutid + System.lineSeparator() +
+                 QRStr = "Scout ID: " + scoutid + System.lineSeparator()
                     +"Team Num: " + TEAM_NUMBER + System.lineSeparator()
+                     +"Match Num: " + MATCH_NUMBER + System.lineSeparator()
                     
                     +"Auto High: " + autohigh + System.lineSeparator()
                     +"Auto Low: " + AutoLow + System.lineSeparator()
