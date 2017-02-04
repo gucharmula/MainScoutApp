@@ -1,4 +1,4 @@
-package org.strykeforce.scoutindividual;
+package org.strykeforce.scoutapp;
 
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
