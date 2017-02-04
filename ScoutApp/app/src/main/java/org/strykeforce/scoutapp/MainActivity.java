@@ -136,37 +136,47 @@ package org.strykeforce.scoutapp;
             if(touchpad)
             {
                 QRStr = "Scout ID: " + scoutid + System.lineSeparator() +
-                    "Climb rope time: " + (progressSeek+min) + System.lineSeparator()
-                    +"Tele High: " + highgoals + System.lineSeparator()
-                    +"Scout Name: " + scoutName + System.lineSeparator()
-                    +"Notes: " + notes + System.lineSeparator()
+                    +"Team Num: " + TEAM_NUMBER + System.lineSeparator()
+                    
                     +"Auto High: " + autohigh + System.lineSeparator()
-                    + "Low Goal Loads in Tele: " + lowgoalLoadsTele+ System.lineSeparator()
-                    + "Gears Delivered in Tele: " + gearsDeliveredTele +System.lineSeparator()
-                    + " Crosses base line: "+ CrossBaseLine+ System.lineSeparator()
-                    + " Places Gear in Auto: " + PlaceGear + System.lineSeparator()
-                    + " Scores low in auto: " + AutoLow + System.lineSeparator()
-                    + " On defence: " + defense + System.lineSeparator()
-                    + " Can pick gear off ground: " + gearoffground + System.lineSeparator()
-                    + " Defended shooting high: " + getsdefended + System.lineSeparator()
-                    + " Touchpad: " + touchpad;
+                    +"Auto Low: " + AutoLow + System.lineSeparator()
+                    +"Auto Gears: " + PlaceGear + System.lineSeparator()
+                    
+                    +"Tele High: " + highgoals + System.lineSeparator()
+                    +"Tele Low: " + lowgoalLoadsTele+ System.lineSeparator()
+                    +"Tele Gears: " + gearsDeliveredTele +System.lineSeparator()
+                    
+                    +"Crosses base line: "+ CrossBaseLine+ System.lineSeparator()
+                    +"Picks gear off ground: " + gearoffground + System.lineSeparator()
+                    +"On defence: " + defense + System.lineSeparator()
+                    +"Defended against shooting high: " + getsdefended + System.lineSeparator()
+                    +"Touchpad: " + touchpad + System.lineSeparator()
+                    +"Climb rope time: " + (progressSeek+min) + System.lineSeparator()
+                    
+                    +"Scout Name: " + scoutName + System.lineSeparator()
+                    +"Notes: " + notes + System.lineSeparator();
             }
             else {
-                QRStr = "Scout ID: " + scoutid + System.lineSeparator()
-                    + "Climb rope time: 0" + System.lineSeparator()
-                    + "Tele High: " + highgoals + System.lineSeparator()
-                    + "Scout Name: " + scoutName + System.lineSeparator()
-                    + "Notes: " + notes + System.lineSeparator()
-                    + "Auto High: " + autohigh + System.lineSeparator()
-                    + "Low Goal Loads in Tele: " + lowgoalLoadsTele + System.lineSeparator()
-                    + " Crosses base line: " + CrossBaseLine + System.lineSeparator()
-                    + "Gears Delivered in Tele: " + gearsDeliveredTele + System.lineSeparator()
-                    + " Places Gear in Auto: " + PlaceGear + System.lineSeparator()
-                    + " Scores low in auto: " + AutoLow + System.lineSeparator()
-                    + " On defence: " + defense + System.lineSeparator()
-                    + " Can pick gear off ground: " + gearoffground + System.lineSeparator()
-                    + " Defended shooting high: " + getsdefended + System.lineSeparator()
-                    + " Touchpad: " + touchpad;
+                 QRStr = "Scout ID: " + scoutid + System.lineSeparator() +
+                    +"Team Num: " + TEAM_NUMBER + System.lineSeparator()
+                    
+                    +"Auto High: " + autohigh + System.lineSeparator()
+                    +"Auto Low: " + AutoLow + System.lineSeparator()
+                    +"Auto Gears: " + PlaceGear + System.lineSeparator()
+                    
+                    +"Tele High: " + highgoals + System.lineSeparator()
+                    +"Tele Low: " + lowgoalLoadsTele+ System.lineSeparator()
+                    +"Tele Gears: " + gearsDeliveredTele +System.lineSeparator()
+                    
+                    +"Crosses base line: "+ CrossBaseLine+ System.lineSeparator()
+                    +"Picks gear off ground: " + gearoffground + System.lineSeparator()
+                    +"On defence: " + defense + System.lineSeparator()
+                    +"Defended against shooting high: " + getsdefended + System.lineSeparator()
+                    +"Touchpad: " + touchpad + System.lineSeparator()
+                    +"Climb rope time: 0" + System.lineSeparator()
+                    
+                    +"Scout Name: " + scoutName + System.lineSeparator()
+                    +"Notes: " + notes + System.lineSeparator();
             }
         }
 
