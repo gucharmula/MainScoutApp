@@ -198,7 +198,7 @@ package org.strykeforce.scoutapp;
                 lowgoaldisplay = (TextView) findViewById(R.id.lowgoalloaddata);
                 lowgoaldisplay.setText(Integer.toString(lowgoalLoadsTele));
 
-                geardisplay = (TextView) findViewById(R.id.textView6);
+                geardisplay = (TextView) findViewById(R.id.gearNumDisplay);
                 geardisplay.setText(Integer.toString(gearsDeliveredTele));
 
                 findViewById(R.id.lowgoalsub).setOnClickListener(new View.OnClickListener() {
