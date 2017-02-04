@@ -9,21 +9,21 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="org.strykeforce.scoutapp.MainActivity">
+    tools:context="org.strykeforce.scoutindividual.MainActivity">
 
     <TextView
-        android:text=" Auto"
+        android:text="Auto"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:id="@+id/auto"
         android:textSize="35sp"
         android:textColor="@android:color/holo_green_dark"
         android:textStyle="normal|bold"
-        android:layout_x="@dimen/left_align"
+        android:layout_x="90dp"
         android:layout_y="0dp" />
 
     <Switch
-        android:text="Cross Base Line: "
+        android:text=" Cross Base Line: "
         android:scaleX="2.00"
         android:scaleY="2.00"
         android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
         android:layout_marginEnd="39dp"
         android:textStyle="normal|bold"
         android:textColor="@android:color/black"
-        android:layout_x="310dp"
+        android:layout_x="280dp"
         android:layout_y="0dp"/>
 
     <TextView
@@ -57,7 +57,7 @@
         android:layout_marginEnd="33dp"
         android:textStyle="normal|bold"
         android:textColor="@android:color/black"
-        android:layout_x="430dp"
+        android:layout_x="460dp"
         android:layout_y="0dp"/>
 
 
@@ -68,7 +68,7 @@
         android:id="@+id/textView31"
         android:textStyle="normal|bold"
         android:layout_x="400dp"
-        android:layout_y="0dp"/>
+        android:layout_y="30dp"/>
 
     <TextView
         android:text="0"
@@ -90,6 +90,7 @@
         android:id="@+id/gearsadd"
         android:textColor="@android:color/holo_orange_dark"
         android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_x="@dimen/button_right"
         android:layout_y="@dimen/button_bottom"/>
 
@@ -97,14 +98,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:ems="10"
+        android:ems="8"
         android:id="@+id/highteledata"
-        android:textSize="20sp"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textStyle="bold"
         android:layout_x="660dp"
-        android:layout_y="190dp"
-        android:text="0" />
+        android:layout_y="185dp"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="25sp" />
 
     <TextView
         android:text="(seconds)  5        10        15        25        30"
@@ -136,6 +136,7 @@
         android:id="@+id/lowgoaladd"
         android:textColor="@android:color/holo_orange_dark"
         android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_x="@dimen/button_right"
         android:layout_y="@dimen/button_top"/>
 
@@ -155,13 +156,14 @@
     <Button
         android:text="Done"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:id="@+id/sendbutton"
         android:textAllCaps="false"
-        android:textColor="@color/zxing_custom_viewfinder_laser"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:layout_x="795dp"
-        android:layout_y="390dp"/>
+        android:layout_y="380dp"/>
 
     <Button
         android:text="-"
@@ -170,6 +172,7 @@
         android:id="@+id/gearssub"
         android:textColor="@android:color/holo_orange_dark"
         android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_x="@dimen/button_left"
         android:layout_y="@dimen/button_bottom"/>
 
@@ -187,7 +190,7 @@
         android:layout_y="60dp"/>
 
     <TextView
-        android:text="High Goals Scored:"
+        android:text="High Goals Scored:  "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/highgoaltele"
@@ -199,7 +202,7 @@
         android:layout_y="202dp"/>
 
     <Switch
-        android:text="Can Pick Up Gear Off The Ground: "
+        android:text="Can Pick Up Gear Off The Ground:  "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/gearoffground"
@@ -247,16 +250,16 @@
         android:layout_y="380dp"/>
 
     <Switch
-        android:text="Defence Interferes Shooting High: "
+        android:text="Def Interferes When Shooting High:  "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/highgoaldefence"
         android:textAllCaps="false"
-        android:scaleX="1.90"
+        android:scaleX="1.85"
         android:scaleY="1.90"
         android:textColor="@android:color/holo_orange_dark"
         android:textStyle="bold"
-        android:layout_x="@dimen/right_align"
+        android:layout_x="521dp"
         android:layout_y="240dp"/>
 
     <Switch
@@ -340,7 +343,7 @@
         android:layout_marginEnd="79dp"
         android:textStyle="normal|bold"
         android:textColor="@android:color/black"
-        android:layout_x="370dp"
+        android:layout_x="340dp"
         android:layout_y="0dp"/>
 
     <TextView
@@ -353,7 +356,7 @@
         android:layout_marginEnd="249dp"
         android:textStyle="normal|bold"
         android:textColor="@android:color/black"
-        android:layout_x="490dp"
+        android:layout_x="520dp"
         android:layout_y="0dp"/>
 
     <TextView
@@ -396,6 +399,7 @@
         android:id="@+id/lowgoalsub"
         android:textColor="@android:color/holo_orange_dark"
         android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_x="@dimen/button_left"
         android:layout_y="@dimen/button_top"/>
 
@@ -452,23 +456,68 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:id="@+id/editText6"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="@android:color/black"
         android:textStyle="bold"
         android:layout_x="250dp"
-        android:layout_y="102dp"
+        android:layout_y="100dp"
         android:text="0" />
 
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         app:srcCompat="@android:drawable/alert_light_frame"
         android:scaleX="1.50"
         android:scaleY="1.50"
-        android:layout_x="200dp"
-        android:layout_y="50dp"
+        android:layout_x="300dp"
+        android:layout_y="40dp"
         android:id="@+id/imageView"
+        android:visibility="invisible" />
+
+    <Button
+        android:text="CONTINUE"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_x="700dp"
+        android:layout_y="300dp"
+        android:id="@+id/continue_btn"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:visibility="invisible" />
+
+    <Button
+        android:text="BACK"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_x="0dp"
+        android:layout_y="300dp"
+        android:id="@+id/back_btn"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:visibility="invisible" />
+
+    <TextView
+        android:text="Red 1"
+        android:layout_height="25dp"
+        android:scaleX="1.70"
+        android:scaleY="1.70"
+        android:layout_width="60dp"
+        android:layout_marginEnd="39dp"
+        android:id="@+id/scoutDisplay"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textStyle="normal|bold"
+        android:layout_x="387dp"
+        android:layout_y="3dp" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="240dp"
+        android:layout_x="700dp"
+        android:layout_y="50dp"
+        android:id="@+id/masterDisplay"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/holo_purple"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:text="Master\nMaster\nMaster"
         android:visibility="invisible" />
 
     android:orientation="horizontal"
