@@ -35,30 +35,17 @@
         android:layout_height="25dp" />
 
     <TextView
-        android:text="Match"
-        android:layout_height="20dp"
-        android:id="@+id/match"
-        android:scaleX="1.50"
-        android:scaleY="1.50"
-        android:layout_width="50dp"
-        android:layout_marginEnd="39dp"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/black"
-        android:layout_x="280dp"
-        android:layout_y="0dp"/>
-
-    <TextView
         android:text="Team"
         android:layout_width="50dp"
         android:layout_height="20dp"
         android:id="@+id/team"
-        android:scaleX="1.50"
-        android:scaleY="1.50"
+        android:scaleX="1.75"
+        android:scaleY="1.75"
         android:layout_marginEnd="33dp"
         android:textStyle="normal|bold"
         android:textColor="@android:color/black"
-        android:layout_x="460dp"
-        android:layout_y="0dp"/>
+        android:layout_x="480dp"
+        android:layout_y="4dp"/>
 
 
     <TextView
@@ -125,7 +112,8 @@
         android:textStyle="normal|bold"
         android:textColor="@android:color/holo_orange_dark"
         android:layout_x="@dimen/right_align2"
-        android:layout_y="0dp"/>
+        android:layout_y="0dp"
+        android:visibility="visible"/>
 
     <!--Num high goals in auto?-->
 
@@ -338,26 +326,26 @@
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:id="@+id/matchdata"
-        android:scaleX="1.50"
-        android:scaleY="1.50"
+        android:scaleX="1.70"
+        android:scaleY="1.70"
         android:layout_marginEnd="79dp"
         android:textStyle="normal|bold"
         android:textColor="@android:color/black"
-        android:layout_x="340dp"
-        android:layout_y="0dp"/>
+        android:layout_x="318dp"
+        android:layout_y="4dp"/>
 
     <TextView
         android:text="0"
-        android:layout_width="50dp"
+        android:layout_width="80dp"
         android:layout_height="20dp"
-        android:scaleX="1.50"
-        android:scaleY="1.50"
+        android:scaleX="1.80"
+        android:scaleY="1.80"
         android:id="@+id/teamdata"
         android:layout_marginEnd="249dp"
         android:textStyle="normal|bold"
         android:textColor="@android:color/black"
-        android:layout_x="520dp"
-        android:layout_y="0dp"/>
+        android:layout_x="565dp"
+        android:layout_y="4dp"/>
 
     <TextView
         android:text="__________________________________________________________________________________________________________________________________________________________________________"
@@ -465,8 +453,8 @@
         android:text="0" />
 
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="310dp"
+        android:layout_height="310dp"
         app:srcCompat="@android:drawable/alert_light_frame"
         android:scaleX="1.50"
         android:scaleY="1.50"
@@ -497,16 +485,15 @@
 
     <TextView
         android:text="Red 1"
-        android:layout_height="25dp"
-        android:scaleX="1.70"
-        android:scaleY="1.70"
-        android:layout_width="60dp"
-        android:layout_marginEnd="39dp"
+        android:layout_height="35dp"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
         android:id="@+id/scoutDisplay"
         android:textColor="@android:color/holo_blue_dark"
         android:textStyle="normal|bold"
-        android:layout_x="387dp"
-        android:layout_y="3dp" />
+        android:layout_x="-46dp"
+        android:layout_y="-6dp" />
 
     <TextView
         android:layout_width="200dp"
@@ -519,6 +506,19 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:text="Master\nMaster\nMaster"
         android:visibility="invisible" />
+
+    <TextView
+        android:text="Match"
+        android:layout_height="20dp"
+        android:id="@+id/match"
+        android:scaleX="1.75"
+        android:scaleY="1.75"
+        android:layout_width="50dp"
+        android:layout_marginEnd="39dp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black"
+        android:layout_x="255dp"
+        android:layout_y="4dp"/>
 
     android:orientation="horizontal"
 
