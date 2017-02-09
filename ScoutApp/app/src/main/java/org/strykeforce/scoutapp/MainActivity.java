@@ -1,6 +1,8 @@
 package org.strykeforce.scoutapp;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -11,15 +13,12 @@ import android.widget.TextView;
 import android.widget.Switch;
 import android.widget.ImageView;
 import android.graphics.Bitmap;
-import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,45 +28,29 @@ public class MainActivity extends AppCompatActivity {
     /*THINGS THAT NEED TO IMPROVE:
     slide bar showing actual numbers
     lock screen orientation -> change manifest file and qr code layout
-    no negatives in match display
-    numbers diff colors
-    Added:
-    rotates through team numbers and match numbers from text file
-    bigger buttons, textfile loop, disappearing
-    master app can handle all current data
+    no negatives in gear display
 
     Pack List: paper and ink
     */
 
-    boolean CrossBaseLine = false;
-    boolean PlaceGear = false;
-    boolean AutoLow = false;
+    boolean CrossBaseLine = false, PlaceGear = false, AutoLow = false;
     String autohigh = "0";
     boolean gearoffground = false;
     String highgoals = "0";
-    boolean getsdefended = false;
-    boolean touchpad = false;
-    int timetakentotouchpad;
-    boolean defense = false;
+    boolean getsdefended = false, touchpad = false, defense = false;
     String scoutid;
     private ImageView QRImageView;
     private String QRStr;
-    int lowgoalLoadsTele = 0;
-    int gearsDeliveredTele = 0;
-    TextView lowgoaldisplay;
-    TextView geardisplay;
-    String scoutName = "n/a";
-    String notes = "none";
+    int lowgoalLoadsTele = 0, gearsDeliveredTele = 0;
+    TextView lowgoaldisplay, geardisplay;
+    String scoutName = "n/a", notes = "none";
     private static SeekBar seek_bar;
     private TextView scoutDisplay, masterDisplay;
     private ImageView qrdisplay;
     private Button continueQR, backbtn;
-    int step = 1;
-    int max = 30;
-    int min = 5;
-    int progressSeek;
+    int step = 1, max = 30, min = 5, progressSeek;
 
-    //Nika's Variables NB
+    //Nika's Variables
     private int[][] allTeamNums;
     private boolean[] matchDone;
     private int numMatches;
@@ -77,8 +60,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.start);
 
+        setContentView(R.layout.activity_main);
+        final AlertDialog.Builder builderSend = new AlertDialog.Builder(this);
+        builderSend.setTitle("NEXT MATCH?");
+
+        setContentView(R.layout.start);
         allTeamNums = getTeamNums();
         matchDone = new boolean[numMatches];
         for(int j=0; j<numMatches; j++)
@@ -104,13 +91,35 @@ public class MainActivity extends AppCompatActivity {
             qrdisplay = (ImageView) findViewById(R.id.imageView);
             continueQR = (Button) findViewById(R.id.continue_btn);
             backbtn = (Button) findViewById(R.id.back_btn);
+
+            if(SCOUT_ID<4)
+                ((TextView) findViewById(R.id.masterDisplay)).setTextColor(Color.parseColor("#ffcc0000"));
+            else
+                ((TextView) findViewById(R.id.masterDisplay)).setTextColor(Color.parseColor("#283593"));
+
             makeEverythingVisible();
 
+            builderSend.setMessage("Are you sure you want to continue? Did the MASTER scan your data?");
             continueQR.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    makeEverythingVisible();
-                    ResetMatch();
+                    builderSend.setPositiveButton("YES", new DialogInterface.OnClickListener() { //sets what the yes option will do
+                        public void onClick(DialogInterface dialog, int which) {
+                            makeEverythingVisible();
+                            ResetMatch(); //calls method to next match
+                            dialog.dismiss(); //closes dialog box
+                        }
+                    });
+                    builderSend.setNegativeButton("NO", new DialogInterface.OnClickListener() { //sets what the no option will do
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss(); //closes dialog box
+                        }
+                    });
+                    AlertDialog alert = builderSend.create();
+                    alert.show();
+                    TextView msgTxt = (TextView) alert.findViewById(android.R.id.message);
+                    msgTxt.setTextSize((float)35.0);
                 }
             });
             backbtn.setOnClickListener(new View.OnClickListener() {
@@ -497,6 +506,7 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.gearNumDisplay)).setVisibility(View.INVISIBLE);
         ((TextView) findViewById(R.id.lowgoalloaddata)).setVisibility(View.INVISIBLE);
         ((TextView) findViewById(R.id.scoutDisplay)).setVisibility(View.INVISIBLE);
+        ((TextView) findViewById(R.id.match)).setVisibility(View.INVISIBLE);
 
         ((EditText) findViewById(R.id.editText6)).setVisibility(View.INVISIBLE);
         ((EditText) findViewById(R.id.editText3)).setVisibility(View.INVISIBLE);
@@ -545,6 +555,7 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.gearNumDisplay)).setVisibility(View.VISIBLE);
         ((TextView) findViewById(R.id.lowgoalloaddata)).setVisibility(View.VISIBLE);
         ((TextView) findViewById(R.id.scoutDisplay)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.match)).setVisibility(View.VISIBLE);
 
         ((EditText) findViewById(R.id.editText6)).setVisibility(View.VISIBLE);
         ((EditText) findViewById(R.id.editText3)).setVisibility(View.VISIBLE);
