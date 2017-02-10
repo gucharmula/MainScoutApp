@@ -181,13 +181,13 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     GenerateQRString();
                     makeEverythingInvisible();
-                    /*if(SCOUT_ID<4)
+                    if(SCOUT_ID<4)
                     {
                         masterDisplay.setText("ID: Red " + SCOUT_ID + "\nTEAM: " + TEAM_NUMBER + "\nMATCH: " + MATCH_NUMBER);
                     }
                     else{
                         masterDisplay.setText("ID: Blue " + (SCOUT_ID-3) + "\nTEAM: " + TEAM_NUMBER + "\nMATCH: " + MATCH_NUMBER);
-                    }*/
+                    }
                     MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
 
                     try {
@@ -309,8 +309,6 @@ public class MainActivity extends AppCompatActivity {
                     +"Scout Name: " + scoutName + System.lineSeparator()
                     +"Notes: " + notes + System.lineSeparator();
         }
-        TextView matchDispla = (TextView) findViewById(R.id.masterDisplay);
-        matchDispla.setText(QRStr);
     }
 
     public void popupscouttScreen(){
@@ -420,7 +418,7 @@ public class MainActivity extends AppCompatActivity {
         TextView matchDisplay = (TextView) findViewById(R.id.matchdata);
         matchDisplay.setText(Integer.toString(MATCH_NUMBER));
 
-        TEAM_NUMBER = allTeamNums[MATCH_NUMBER][SCOUT_ID]; //gets team from list generated from text file
+        TEAM_NUMBER = allTeamNums[MATCH_NUMBER][SCOUT_ID-1]; //gets team from list generated from text file
         TextView teamDisplay = (TextView) findViewById(R.id.teamdata);
         teamDisplay.setText(Integer.toString(TEAM_NUMBER));
 
@@ -460,10 +458,10 @@ public class MainActivity extends AppCompatActivity {
         //highgoalsdel.setTextColor(Color.parseColor("@android:color/holo_orange_dark"));
 
         EditText notes = (EditText) findViewById(R.id.editText2);
-        notes.setText(" ");
+        notes.setText(".");
 
         EditText scoutname = (EditText) findViewById(R.id.editText3);
-        scoutname.setText(" ");
+        scoutname.setText(".");
     }
 
     //gets all the team numbers from text file and
