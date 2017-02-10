@@ -181,13 +181,13 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     GenerateQRString();
                     makeEverythingInvisible();
-                    if(SCOUT_ID<4)
+                    /*if(SCOUT_ID<4)
                     {
                         masterDisplay.setText("ID: Red " + SCOUT_ID + "\nTEAM: " + TEAM_NUMBER + "\nMATCH: " + MATCH_NUMBER);
                     }
                     else{
                         masterDisplay.setText("ID: Blue " + (SCOUT_ID-3) + "\nTEAM: " + TEAM_NUMBER + "\nMATCH: " + MATCH_NUMBER);
-                    }
+                    }*/
                     MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
 
                     try {
@@ -240,41 +240,77 @@ public class MainActivity extends AppCompatActivity {
         Switch GetsDefendedSwitch = (Switch) findViewById(R.id.highgoaldefence);
         getsdefended = GetsDefendedSwitch.isChecked();
 
+        /*
+    SCOUT ID
+    TEAM NUM
+    MATCH NUM
+
+    Auto High
+    Auto Low
+    Auto Gears
+
+    Tele High
+    Tele Low
+    Tele Gears
+
+    Crosses base line
+    Picks gear off ground
+    On defence
+    Defended shooting high
+    Touchpad
+    Climb Rope Time
+    Scout Name
+    Notes
+     */
         if(touchpad)
         {
-            QRStr = "Scout ID: " + scoutid + System.lineSeparator() +
-                    "Climb rope time: " + (progressSeek+min) + System.lineSeparator()
-                    +"Tele High: " + highgoals + System.lineSeparator()
-                    +"Scout Name: " + scoutName + System.lineSeparator()
-                    +"Notes: " + notes + System.lineSeparator()
+            QRStr = "Scout ID: " + scoutid + System.lineSeparator()
+                    +"Team: " + TEAM_NUMBER + System.lineSeparator()
+                    +"Match: " + MATCH_NUMBER + System.lineSeparator()
+
                     +"Auto High: " + autohigh + System.lineSeparator()
-                    + "Low Goal Loads in Tele: " + lowgoalLoadsTele+ System.lineSeparator()
-                    + "Gears Delivered in Tele: " + gearsDeliveredTele +System.lineSeparator()
-                    + " Crosses base line: "+ CrossBaseLine+ System.lineSeparator()
-                    + " Places Gear in Auton: " + PlaceGear + System.lineSeparator()
-                    + " Scores the low goal in auton: " + AutoLow + System.lineSeparator()
-                    + " On defence: " + defense + System.lineSeparator()
-                    + " Can pick a gear off the ground: " + gearoffground + System.lineSeparator()
-                    + " Defended shooting high: " + getsdefended + System.lineSeparator()
-                    + " Touchpad: " + touchpad;
+                    +"Auto Low: " + AutoLow + System.lineSeparator()
+                    +"Auto Gear: " + PlaceGear + System.lineSeparator()
+
+                    +"Tele High: " + highgoals + System.lineSeparator()
+                    +"Tele Low: " + lowgoalLoadsTele+ System.lineSeparator()
+                    +"Tele Gear: " + gearsDeliveredTele +System.lineSeparator()
+
+                    +"Crosses base line: "+ CrossBaseLine+ System.lineSeparator()
+                    +"Can pick gears off ground: " + gearoffground + System.lineSeparator()
+                    +"On defence: " + defense + System.lineSeparator()
+                    +"Defended shooting high: " + getsdefended + System.lineSeparator()
+                    +"Touchpad: " + touchpad + System.lineSeparator()
+                    +"Climb rope time: " + (progressSeek+min) + System.lineSeparator()
+
+                    +"Scout Name: " + scoutName + System.lineSeparator()
+                    +"Notes: " + notes + System.lineSeparator();
         }
         else {
             QRStr = "Scout ID: " + scoutid + System.lineSeparator()
-                    + "Time Taken to climb rope: 0" + System.lineSeparator()
-                    + "Tele High: " + highgoals + System.lineSeparator()
-                    + "Scout Name: " + scoutName + System.lineSeparator()
-                    + "Notes: " + notes + System.lineSeparator()
-                    + "Auto High: " + autohigh + System.lineSeparator()
-                    + "Low Goal Loads in Tele: " + lowgoalLoadsTele + System.lineSeparator()
-                    + " Crosses base line: " + CrossBaseLine + System.lineSeparator()
-                    + "Gears Dilivered in Tele: " + gearsDeliveredTele + System.lineSeparator()
-                    + " Places Gear in Auton: " + PlaceGear + System.lineSeparator()
-                    + " Scores the low goal in auton: " + AutoLow + System.lineSeparator()
-                    + " On defence: " + defense + System.lineSeparator()
-                    + " Can pick a gear off the ground: " + gearoffground + System.lineSeparator()
-                    + " Defended shooting high: " + getsdefended + System.lineSeparator()
-                    + " Touchpad: " + touchpad;
+                    +"Team: " + TEAM_NUMBER + System.lineSeparator()
+                    +"Match: " + MATCH_NUMBER + System.lineSeparator()
+
+                    +"Auto High: " + autohigh + System.lineSeparator()
+                    +"Auto Low: " + AutoLow + System.lineSeparator()
+                    +"Auto Gear: " + PlaceGear + System.lineSeparator()
+
+                    +"Tele High: " + highgoals + System.lineSeparator()
+                    +"Tele Low: " + lowgoalLoadsTele+ System.lineSeparator()
+                    +"Tele Gear: " + gearsDeliveredTele +System.lineSeparator()
+
+                    +"Crosses base line: "+ CrossBaseLine+ System.lineSeparator()
+                    +"Can pick gears off ground: " + gearoffground + System.lineSeparator()
+                    +"On defence: " + defense + System.lineSeparator()
+                    +"Defended shooting high: " + getsdefended + System.lineSeparator()
+                    +"Touchpad: " + touchpad + System.lineSeparator()
+                    +"Climb rope time: 0" + (progressSeek+min) + System.lineSeparator()
+
+                    +"Scout Name: " + scoutName + System.lineSeparator()
+                    +"Notes: " + notes + System.lineSeparator();
         }
+        TextView matchDispla = (TextView) findViewById(R.id.masterDisplay);
+        matchDispla.setText(QRStr);
     }
 
     public void popupscouttScreen(){
