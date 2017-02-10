@@ -418,13 +418,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:ems="10"
+        android:ems="9"
         android:id="@+id/editText2"
         android:textSize="14sp"
         android:textAllCaps="false"
         android:textColor="@color/zxing_custom_viewfinder_laser"
         android:textStyle="bold"
-        android:layout_x="630dp"
+        android:layout_x="645dp"
         android:layout_y="400dp"/>
 
     <EditText
@@ -434,7 +434,7 @@
         android:ems="10"
         android:textStyle="normal|bold"
         android:id="@+id/editText3"
-        android:textSize="15sp"
+        android:textSize="18sp"
         android:textColor="?attr/colorPrimaryDark"
         android:layout_x="600dp"
         android:layout_y="310dp" />
@@ -499,9 +499,9 @@
         android:layout_width="200dp"
         android:layout_height="240dp"
         android:layout_x="700dp"
-        android:layout_y="50dp"
-        android:id="@+id/masterDisplay"
+        android:layout_y="40dp"
         android:textStyle="normal|bold"
+        android:id="@+id/masterDisplay"
         android:textColor="@android:color/holo_purple"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:text="Master\nMaster\nMaster"
