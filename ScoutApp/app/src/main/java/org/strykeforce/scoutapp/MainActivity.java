@@ -31,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
     no negatives in gear display
 
     Pack List: paper and ink
+    10 tablets
+        4 red - 3 red scouts and 1 extra unnamed
+        4 blue - 3 blue scouts and 1 extra unnamed
+        1 Large Black Master Tablet
+        1 Small Black Extra Master Tablet
+     Need to Buy Still:
+        7-8 clickers
+        10-12 battery packs
     */
 
     boolean CrossBaseLine = false, PlaceGear = false, AutoLow = false;
@@ -53,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     //Nika's Variables
     private int[][] allTeamNums;
     private boolean[] matchDone;
-    private int numMatches;
+    private int numMatches, numLines;
     private String teamText = "";
     private static int MATCH_NUMBER=0, TEAM_NUMBER, SCOUT_ID; //current match and team num
 
@@ -65,144 +73,150 @@ public class MainActivity extends AppCompatActivity {
         final AlertDialog.Builder builderSend = new AlertDialog.Builder(this);
         builderSend.setTitle("NEXT MATCH?");
 
-        setContentView(R.layout.start);
         allTeamNums = getTeamNums();
         matchDone = new boolean[numMatches];
-        for(int j=0; j<numMatches; j++)
+        for (int j = 0; j < numMatches; j++)
             matchDone[j] = false;
 
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            EditText inputText = (EditText) findViewById(R.id.editText);
-            scoutid = inputText.getText().toString();
-            SCOUT_ID = Integer.parseInt(scoutid);
-
-            EditText matchInput = (EditText) findViewById(R.id.editText7);
-            MATCH_NUMBER = Integer.parseInt(matchInput.getText().toString())-1;
-
-            setContentView(R.layout.activity_main);
-            scoutDisplay = (TextView) findViewById(R.id.scoutDisplay);
-            setScouter(SCOUT_ID);
-            masterDisplay = (TextView) findViewById(R.id.masterDisplay);
-            lowgoaldisplay = (TextView) findViewById(R.id.lowgoalloaddata);
-            geardisplay = (TextView) findViewById(R.id.gearNumDisplay);
-            ResetMatch();
-            qrdisplay = (ImageView) findViewById(R.id.imageView);
-            continueQR = (Button) findViewById(R.id.continue_btn);
-            backbtn = (Button) findViewById(R.id.back_btn);
-
-            if(SCOUT_ID<4)
-                ((TextView) findViewById(R.id.masterDisplay)).setTextColor(Color.parseColor("#ffcc0000"));
-            else
-                ((TextView) findViewById(R.id.masterDisplay)).setTextColor(Color.parseColor("#283593"));
-
-            makeEverythingVisible();
-
-            builderSend.setMessage("Are you sure you want to continue? Did the MASTER scan your data?");
-            continueQR.setOnClickListener(new View.OnClickListener() {
+            setContentView(R.layout.start);
+            findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    builderSend.setPositiveButton("YES", new DialogInterface.OnClickListener() { //sets what the yes option will do
-                        public void onClick(DialogInterface dialog, int which) {
-                            makeEverythingVisible();
-                            ResetMatch(); //calls method to next match
-                            dialog.dismiss(); //closes dialog box
-                        }
-                    });
-                    builderSend.setNegativeButton("NO", new DialogInterface.OnClickListener() { //sets what the no option will do
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss(); //closes dialog box
-                        }
-                    });
-                    AlertDialog alert = builderSend.create();
-                    alert.show();
-                    TextView msgTxt = (TextView) alert.findViewById(android.R.id.message);
-                    msgTxt.setTextSize((float)35.0);
-                }
-            });
-            backbtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    makeEverythingVisible();
-                }
-            });
-            SeekBar seekbar1 = (SeekBar) findViewById(R.id.ropetimedata);
-            seekbar1.setMax((max - min) / step);
 
-            seekbar1.setOnSeekBarChangeListener(
-                    new SeekBar.OnSeekBarChangeListener() {
-                        @Override
-                        public void onStopTrackingTouch(SeekBar seekBar) { }
-                        @Override
-                        public void onStartTrackingTouch(SeekBar seekBar) { }
-                        @Override
-                        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                            double value = min + (progress * step);
-                            progressSeek = progress;
-                        }
+                    EditText inputText = (EditText) findViewById(R.id.editText);
+                    scoutid = inputText.getText().toString();
+                    SCOUT_ID = Integer.parseInt(scoutid);
+
+                    EditText matchInput = (EditText) findViewById(R.id.editText7);
+                    MATCH_NUMBER = Integer.parseInt(matchInput.getText().toString()) - 1;
+
+                    if (notValidMatch(MATCH_NUMBER) || notValidScout(SCOUT_ID)) {
+                        resetScoutScreen();
+                    } else {
+                        setContentView(R.layout.activity_main);
+                        scoutDisplay = (TextView) findViewById(R.id.scoutDisplay);
+                        setScouter(SCOUT_ID);
+                        masterDisplay = (TextView) findViewById(R.id.masterDisplay);
+                        lowgoaldisplay = (TextView) findViewById(R.id.lowgoalloaddata);
+                        geardisplay = (TextView) findViewById(R.id.gearNumDisplay);
+                        ResetMatch();
+                        qrdisplay = (ImageView) findViewById(R.id.imageView);
+                        continueQR = (Button) findViewById(R.id.continue_btn);
+                        backbtn = (Button) findViewById(R.id.back_btn);
+
+                        if (SCOUT_ID < 4)
+                            ((TextView) findViewById(R.id.masterDisplay)).setTextColor(Color.parseColor("#ffcc0000"));
+                        else
+                            ((TextView) findViewById(R.id.masterDisplay)).setTextColor(Color.parseColor("#283593"));
+
+                        makeEverythingVisible();
+
+                        builderSend.setMessage("Are you sure you want to continue? Did the MASTER scan your data?");
+                        continueQR.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                builderSend.setPositiveButton("YES", new DialogInterface.OnClickListener() { //sets what the yes option will do
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        makeEverythingVisible();
+                                        ResetMatch(); //calls method to next match
+                                        dialog.dismiss(); //closes dialog box
+                                    }
+                                });
+                                builderSend.setNegativeButton("NO", new DialogInterface.OnClickListener() { //sets what the no option will do
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss(); //closes dialog box
+                                    }
+                                });
+                                AlertDialog alert = builderSend.create();
+                                alert.show();
+                                TextView msgTxt = (TextView) alert.findViewById(android.R.id.message);
+                                msgTxt.setTextSize((float) 35.0);
+                            }
+                        });
+                        backbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                makeEverythingVisible();
+                            }
+                        });
+                        SeekBar seekbar1 = (SeekBar) findViewById(R.id.ropetimedata);
+                        seekbar1.setMax((max - min) / step);
+
+                        seekbar1.setOnSeekBarChangeListener(
+                                new SeekBar.OnSeekBarChangeListener() {
+                                    @Override
+                                    public void onStopTrackingTouch(SeekBar seekBar) {
+                                    }
+
+                                    @Override
+                                    public void onStartTrackingTouch(SeekBar seekBar) {
+                                    }
+
+                                    @Override
+                                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                                        double value = min + (progress * step);
+                                        progressSeek = progress;
+                                    }
+                                }
+                        );
+                        findViewById(R.id.lowgoalsub).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                lowgoalLoadsTele--;
+                                lowgoaldisplay.setText(Integer.toString(lowgoalLoadsTele));
+                            }
+                        });
+
+                        findViewById(R.id.lowgoaladd).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                lowgoalLoadsTele++;
+                                lowgoaldisplay.setText(Integer.toString(lowgoalLoadsTele));
+                            }
+                        });
+
+                        findViewById(R.id.gearsadd).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                gearsDeliveredTele++;
+                                geardisplay.setText(Integer.toString(gearsDeliveredTele));
+                            }
+                        });
+
+                        findViewById(R.id.gearssub).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                gearsDeliveredTele--;
+                                geardisplay.setText(Integer.toString(gearsDeliveredTele));
+                            }
+                        });
+
+                        findViewById(R.id.sendbutton).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                GenerateQRString();
+                                makeEverythingInvisible();
+                                if (SCOUT_ID < 4) {
+                                    masterDisplay.setText("ID: Red " + SCOUT_ID + "\nTEAM: " + TEAM_NUMBER + "\nMATCH: " + MATCH_NUMBER);
+                                } else {
+                                    masterDisplay.setText("ID: Blue " + (SCOUT_ID - 3) + "\nTEAM: " + TEAM_NUMBER + "\nMATCH: " + MATCH_NUMBER);
+                                }
+                                MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+
+                                try {
+                                    BitMatrix bitMatrix = multiFormatWriter.encode(QRStr, BarcodeFormat.QR_CODE, 400, 400);
+                                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+                                    qrdisplay.setImageBitmap(bitmap);
+                                } catch (WriterException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
                     }
-            );
-            findViewById(R.id.lowgoalsub).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    lowgoalLoadsTele--;
-                    lowgoaldisplay.setText(Integer.toString(lowgoalLoadsTele));
                 }
             });
-
-            findViewById(R.id.lowgoaladd).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    lowgoalLoadsTele++;
-                    lowgoaldisplay.setText(Integer.toString(lowgoalLoadsTele));
-                }
-            });
-
-            findViewById(R.id.gearsadd).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    gearsDeliveredTele++;
-                    geardisplay.setText(Integer.toString(gearsDeliveredTele));
-                }
-            });
-
-            findViewById(R.id.gearssub).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    gearsDeliveredTele--;
-                    geardisplay.setText(Integer.toString(gearsDeliveredTele));
-                }
-            });
-
-            findViewById(R.id.sendbutton).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    GenerateQRString();
-                    makeEverythingInvisible();
-                    if(SCOUT_ID<4)
-                    {
-                        masterDisplay.setText("ID: Red " + SCOUT_ID + "\nTEAM: " + TEAM_NUMBER + "\nMATCH: " + MATCH_NUMBER);
-                    }
-                    else{
-                        masterDisplay.setText("ID: Blue " + (SCOUT_ID-3) + "\nTEAM: " + TEAM_NUMBER + "\nMATCH: " + MATCH_NUMBER);
-                    }
-                    MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-
-                    try {
-                        BitMatrix bitMatrix = multiFormatWriter.encode(QRStr, BarcodeFormat.QR_CODE, 400, 400);
-                        BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                        Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-                        qrdisplay.setImageBitmap(bitmap);
-                    } catch (WriterException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-            });
-        };
-    });
     }
 
     public void GenerateQRString()
@@ -262,6 +276,10 @@ public class MainActivity extends AppCompatActivity {
     Scout Name
     Notes
      */
+        if(gearsDeliveredTele<0)
+            gearsDeliveredTele = 0;
+        if(Integer.parseInt(highgoals)<0)
+            highgoals = "0";
         if(touchpad)
         {
             QRStr = "Scout ID: " + scoutid + System.lineSeparator()
@@ -479,7 +497,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Scanner scan = new Scanner(teamText);
-        int numLines = countLines(teamText);
+        numLines = countLines(teamText);
         numMatches = numLines;
         int[][] allTeams = new int[numLines][6];
         for(int j=0; j<numLines; j++)
@@ -508,6 +526,46 @@ public class MainActivity extends AppCompatActivity {
             scoutDisplay.setText("Blue " + (idscout-3));
             scoutDisplay.setTextColor(Color.parseColor("#1d34e2"));
         }
+    }
+
+    private boolean notValidMatch(int matchnum)
+    {
+        if(matchnum>numLines || matchnum<0)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
+    private boolean notValidScout(int id)
+    {
+        if(id<1 || id>6)
+            return true;
+        else
+            return false;
+    }
+
+    private void resetScoutScreen()
+    {
+        final AlertDialog.Builder validNumbers = new AlertDialog.Builder(this);
+        validNumbers.setTitle("PLEASE ENTER VALID NUMBER");
+
+        validNumbers.setMessage("Please make sure your scout ID is between 1-6 and you enter a valid match number.");
+        validNumbers.setNeutralButton("OK", new DialogInterface.OnClickListener() { //sets what the yes option will do
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss(); //closes dialog box
+            }
+        });
+        AlertDialog alert = validNumbers.create();
+        alert.show();
+        TextView msgTxt = (TextView) alert.findViewById(android.R.id.message);
+        msgTxt.setTextSize((float)35.0);
+        EditText inputText = (EditText) findViewById(R.id.editText);
+        inputText.setText("");
+
+        EditText matchInput = (EditText) findViewById(R.id.editText7);
+        matchInput.setText("");
     }
 
     public void makeEverythingInvisible()
@@ -608,5 +666,3 @@ public class MainActivity extends AppCompatActivity {
         masterDisplay.setVisibility(View.INVISIBLE);
     }
 }
-
-
