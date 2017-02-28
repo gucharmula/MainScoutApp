@@ -1,4 +1,4 @@
-package org.strykeforce.scoutindividual;
+package org.strykeforce.scoutapp;
 
 import android.content.DialogInterface;
 import android.graphics.Color;
