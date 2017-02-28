@@ -1,4 +1,4 @@
-package org.strykeforce.scoutapp;
+package org.strykeforce.scoutindividual;
 
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
      Need to Buy Still:
         7-8 clickers
         10-12 battery packs
+
+        ORDER OF ITEMS IS WRONG
     */
 
     boolean CrossBaseLine = false, PlaceGear = false, AutoLow = false;
@@ -92,7 +94,8 @@ public class MainActivity extends AppCompatActivity {
 
                     if (notValidMatch(MATCH_NUMBER) || notValidScout(SCOUT_ID)) {
                         resetScoutScreen();
-                    } else {
+                    }
+                    else {
                         setContentView(R.layout.activity_main);
                         scoutDisplay = (TextView) findViewById(R.id.scoutDisplay);
                         setScouter(SCOUT_ID);
@@ -254,27 +257,27 @@ public class MainActivity extends AppCompatActivity {
         Switch GetsDefendedSwitch = (Switch) findViewById(R.id.highgoaldefence);
         getsdefended = GetsDefendedSwitch.isChecked();
 
-        /*
-    SCOUT ID
-    TEAM NUM
-    MATCH NUM
+    /*
+    SCOUT ID int
+    TEAM NUM int
+    MATCH NUM int
 
-    Auto High
-    Auto Low
-    Auto Gears
+    Auto High int
 
-    Tele High
-    Tele Low
-    Tele Gears
+    Tele High int
+    Tele Low int
+    Tele Gears int
+    Climb Rope Time int
 
-    Crosses base line
-    Picks gear off ground
-    On defence
-    Defended shooting high
-    Touchpad
-    Climb Rope Time
-    Scout Name
-    Notes
+    Auto Low BOOL
+    Auto Gears BOOL
+    Crosses base line BOOL
+    Picks gear off ground BOOL
+    On defence BOOL
+    Defended shooting high  BOOL
+    Touchpad BOOL
+    Scout Name StrING
+    Notes STRING
      */
         if(gearsDeliveredTele<0)
             gearsDeliveredTele = 0;
@@ -282,50 +285,52 @@ public class MainActivity extends AppCompatActivity {
             highgoals = "0";
         if(touchpad)
         {
-            QRStr = "Scout ID: " + scoutid + System.lineSeparator()
-                    +"Team: " + TEAM_NUMBER + System.lineSeparator()
-                    +"Match: " + MATCH_NUMBER + System.lineSeparator()
+            QRStr = "Scout ID: " + scoutid + "\t"
+                    +"Team: " + TEAM_NUMBER + "\t"
+                    +"Match: " + MATCH_NUMBER + "\t"
 
-                    +"Auto High: " + autohigh + System.lineSeparator()
-                    +"Auto Low: " + AutoLow + System.lineSeparator()
-                    +"Auto Gear: " + PlaceGear + System.lineSeparator()
+                    +"Auto High: " + autohigh + "\t"
 
-                    +"Tele High: " + highgoals + System.lineSeparator()
-                    +"Tele Low: " + lowgoalLoadsTele+ System.lineSeparator()
-                    +"Tele Gear: " + gearsDeliveredTele +System.lineSeparator()
+                    +"Tele High: " + highgoals + "\t"
+                    +"Tele Low: " + lowgoalLoadsTele+ "\t"
+                    +"Tele Gear: " + gearsDeliveredTele +"\t"
+                    +"Climb rope time: " + (progressSeek+min) + "\t"
 
-                    +"Crosses base line: "+ CrossBaseLine+ System.lineSeparator()
-                    +"Can pick gears off ground: " + gearoffground + System.lineSeparator()
-                    +"On defence: " + defense + System.lineSeparator()
-                    +"Defended shooting high: " + getsdefended + System.lineSeparator()
-                    +"Touchpad: " + touchpad + System.lineSeparator()
-                    +"Climb rope time: " + (progressSeek+min) + System.lineSeparator()
+                    +"Auto Low: " + AutoLow + "\t"
+                    +"Auto Gear: " + PlaceGear + "\t"
+                    +"Crosses base line: "+ CrossBaseLine+ "\t"
+                    +"Can pick gears off ground: " + gearoffground + "\t"
+                    +"On defence: " + defense + "\t"
+                    +"Defended shooting high: " + getsdefended + "\t"
+                    +"Touchpad: " + touchpad + "\t"
 
-                    +"Scout Name: " + scoutName + System.lineSeparator()
-                    +"Notes: " + notes + System.lineSeparator();
+                    +"Scout Name: " + scoutName + "\t"
+                    +"Notes: " + notes + "\t";
+            System.out.println("QR STRING: \n"+QRStr);
         }
         else {
-            QRStr = "Scout ID: " + scoutid + System.lineSeparator()
-                    +"Team: " + TEAM_NUMBER + System.lineSeparator()
-                    +"Match: " + MATCH_NUMBER + System.lineSeparator()
+            QRStr = "Scout ID: " + scoutid + "\t"
+                    +"Team: " + TEAM_NUMBER + "\t"
+                    +"Match: " + MATCH_NUMBER + "\t"
 
-                    +"Auto High: " + autohigh + System.lineSeparator()
-                    +"Auto Low: " + AutoLow + System.lineSeparator()
-                    +"Auto Gear: " + PlaceGear + System.lineSeparator()
+                    +"Auto High: " + autohigh + "\t"
 
-                    +"Tele High: " + highgoals + System.lineSeparator()
-                    +"Tele Low: " + lowgoalLoadsTele+ System.lineSeparator()
-                    +"Tele Gear: " + gearsDeliveredTele +System.lineSeparator()
+                    +"Tele High: " + highgoals + "\t"
+                    +"Tele Low: " + lowgoalLoadsTele+ "\t"
+                    +"Tele Gear: " + gearsDeliveredTele +"\t"
+                    +"Climb rope time: 0" + "\t"
 
-                    +"Crosses base line: "+ CrossBaseLine+ System.lineSeparator()
-                    +"Can pick gears off ground: " + gearoffground + System.lineSeparator()
-                    +"On defence: " + defense + System.lineSeparator()
-                    +"Defended shooting high: " + getsdefended + System.lineSeparator()
-                    +"Touchpad: " + touchpad + System.lineSeparator()
-                    +"Climb rope time: 0" + (progressSeek+min) + System.lineSeparator()
+                    +"Auto Low: " + AutoLow + "\t"
+                    +"Auto Gear: " + PlaceGear + "\t"
+                    +"Crosses base line: "+ CrossBaseLine+ "\t"
+                    +"Can pick gears off ground: " + gearoffground + "\t"
+                    +"On defence: " + defense + "\t"
+                    +"Defended shooting high: " + getsdefended + "\t"
+                    +"Touchpad: " + touchpad + "\t"
 
-                    +"Scout Name: " + scoutName + System.lineSeparator()
-                    +"Notes: " + notes + System.lineSeparator();
+
+                    +"Scout Name: " + scoutName + "\t"
+                    +"Notes: " + notes + "\t";
         }
     }
 
@@ -440,6 +445,9 @@ public class MainActivity extends AppCompatActivity {
         TextView teamDisplay = (TextView) findViewById(R.id.teamdata);
         teamDisplay.setText(Integer.toString(TEAM_NUMBER));
 
+        SeekBar seekbar = (SeekBar) (findViewById(R.id.ropetimedata));
+        seekbar.setProgress(0);
+
         Switch baselineswitch  = (Switch) findViewById(R.id.baseline);
         baselineswitch.setChecked(false);
 
@@ -460,6 +468,8 @@ public class MainActivity extends AppCompatActivity {
 
         Switch GetsDefendedSwitch = (Switch) findViewById(R.id.highgoaldefence);
         GetsDefendedSwitch.setChecked(false);
+
+
 
         gearsDeliveredTele = 0;
         lowgoalLoadsTele = 0;
@@ -666,3 +676,6 @@ public class MainActivity extends AppCompatActivity {
         masterDisplay.setVisibility(View.INVISIBLE);
     }
 }
+
+
+
