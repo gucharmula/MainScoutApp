@@ -484,7 +484,7 @@
         android:visibility="invisible" />
 
     <TextView
-        android:text="Red 1"
+        android:text="Blue 1"
         android:layout_height="35dp"
         android:textSize="30dp"
         android:textAlignment="center"
